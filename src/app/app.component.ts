@@ -1,23 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+
+export class AppComponent {
   title: string = 'app';
-  greeting: string;
-  from: string;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.http.get('http://localhost:4000/api/hello').subscribe(data => {
-      console.log(`Received data from API: ${JSON.stringify(data)}`);
-      this.greeting = data["greeting"];
-      this.from = data["from"];
-    });
-  }
 }
